@@ -1,4 +1,3 @@
-/* Header */
 @font-face {
   font-family: ProximaNova;
   src: url(../assets/fonts/FontsFree-Net-proxima_nova_reg-webfont.ttf);
@@ -9,13 +8,19 @@
   font-family: ProximaNova;
   box-sizing: border-box;
 }
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* Header */
 header {
   display: flex;
   align-items: center;
   height: 90px;
   background: rgba(255, 255, 255, 0.9);
   font-family: ProximaNova;
-
+  border: 1px solid rgba(0, 0, 0, 0.1);
   & > div:nth-child(1) {
     padding: 0 1rem 0;
   }
@@ -43,23 +48,35 @@ header {
     top: 5px;
     left: 5px;
   }
-
   & .header_Nav_Item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @extend .flex;
     & img {
       padding-right: 3rem;
     }
+    & img:nth-of-type(1) {
+      padding-left: 3rem;
+    }
+    & img:nth-of-type(3) {
+      padding-right: 0rem;
+    }
     .badge {
       position: relative;
-    }
-    .badge::after {
-      content: "";
-      width: 16px;
-      height: 16px;
-      border-radius: 27px;
-      background: #f9c20a;
+      img {
+        padding-left: 0;
+      }
+      &::after {
+        position: absolute;
+        content: "9";
+        line-height: 16px;
+        text-align: center;
+        font-size: 0.65rem;
+        width: 16px;
+        height: 16px;
+        border-radius: 27px;
+        background: #f9c20a;
+        right: 2.3rem;
+        top: -0.65rem;
+      }
     }
     & > div:nth-of-type(1) {
       width: 50px;
@@ -70,25 +87,132 @@ header {
     & > div:nth-of-type(3) {
       padding-right: 3rem;
     }
+    & > div:nth-of-type(3) p:nth-child(1) {
+      font-weight: 600;
+    }
+    & > div:nth-of-type(3) p:nth-child(2) {
+      font-size: 0.75rem;
+    }
   }
 }
-.border {
-  border: 1px solid #000000;
-  opacity: 0.1;
-}
-
-section > nav {
-  width: 130px;
-//   padding: 20px;
-  background: #ffffff;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
-  text-align: center;
-
-  & > div>div {
-    padding: 10px;
-
-    p {
-      font-size: 0.75rem;
+section {
+  display: flex;
+  width: 100%;
+  & nav {
+    width: 130px;
+    //   padding: 20px;
+    background: #ffffff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    & > div > div {
+      padding: 10px;
+      p {
+        font-size: 0.75rem;
+      }
+    }
+  }
+  & > .bankStage {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    background: #ffffff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+    height: 55px;
+  }
+  & > .bankStage > div {
+    display: flex;
+    padding: 1rem;
+    & span {
+      padding-left: 1rem;
+      font-family: ProximaNova, sans-serif;
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 12px;
+      text-align: center;
+      color: #f58220;
+    }
+    & span p {
+      border: 1px solid #faa61a;
+      border-radius: 40%;
+      padding: 0.35rem;
+    }
+  }
+  & > section {
+    display: flex;
+    flex-direction: column;
+    & main > div:nth-child(1) {
+      display: flex;
+      justify-content: space-between;
+      padding: 1rem 10rem 1rem;
+      h3 {
+        font-size: 2rem;
+      }
+      .currency {
+        display: flex;
+        justify-self: center;
+        font-size: 0.85rem;
+        width: 360px;
+        height: 50px;
+        border: 1px solid #e7e7e7;
+        border-radius: 48px;
+        background: #f5f5f5;
+        & > span {
+          font-family: sans-serif;
+          width: 60px;
+          height: 51px;
+          background: #ffffff;
+          border: 2px solid #e6e6e6;
+          box-shadow: 0px 2px 4px rgba(97, 97, 115, 0.15);
+          border-radius: 48px;
+          text-align: center;
+          line-height: 50px;
+        }
+        & > div {
+          text-align: center;
+          padding: 0.5rem 1rem 0rem;
+          span {
+            font-weight: bold;
+          }
+          p {
+            font-size: 0.7rem;
+          }
+        }
+      }
+    }
+    & > main .cards {
+      width: 1090px;
+      height: 463px;
+      text-align: start;
+      margin: 0 auto;
+      background: #ffffff;
+      box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.08);
+      border-radius: 10px;
+      align-items: center;
+      .card {
+        padding: 20px;
+        display: flex;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        color: #9696aa;
+        font-size: 0.75rem;
+        justify-content: space-between;
+        p {
+          text-transform: uppercase;
+        }
+        & > p:nth-of-type(1) img {
+          padding-left: 15px;
+        }
+      }
+      .cartInfo {
+        padding: 24.5px 24.5px;
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        transform: rotate(0deg);
+        img {
+          width: 19px;
+          height: 12px;
+        }
+      }
     }
   }
 }
