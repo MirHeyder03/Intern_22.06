@@ -1,0 +1,46 @@
+:root {
+    --primaryClr: #2677b5;
+    font-family: sans-serif;
+    color: var(--primaryClr);
+}
+
+h1 {
+    text-align: center;
+}
+input {
+    display: block;
+    margin: 0 auto;
+    padding: 10px;
+    font-size: 20px;
+    outline: var(--primaryClr) solid 2px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 80px;
+    color: var(--primaryClr);
+}
+button {
+    display: block;
+    margin: 30px auto;
+    padding: 5px 40px;
+    font-size: 18px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: 2px solid var(--primaryClr);
+    color: var(--primaryClr);
+    border-radius: 5px;
+}
+button:hover {
+    background-color: var(--primaryClr);
+    color: white;
+}
+/* hide arrows */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
